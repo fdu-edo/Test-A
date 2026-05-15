@@ -26,9 +26,9 @@ jobs:
         sudo apt update
         sudo apt install -y python3.10 python3.10-distutils git zip openjdk-17-jdk unzip wget autoconf automake libtool
 
-        # Installer pip pour Python 3.10
+        # Installer pip, setuptools et wheel pour Python 3.10
         python3.10 -m ensurepip --upgrade
-        python3.10 -m pip install --upgrade pip
+        python3.10 -m pip install --upgrade pip setuptools wheel
 
     - name: Install Android NDK 25b
       run: |
