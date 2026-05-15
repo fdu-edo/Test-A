@@ -10,7 +10,7 @@ import os
 # -----------------------------
 # PARAMÈTRES GITHUB
 # -----------------------------
-GITHUB_TOKEN = "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"          # ⚠ à remplacer
+GITHUB_TOKEN = ""          # ⚠ à remplacer
 REPO_NAME = "fdu-edo/QRCodeMSG"
 FILE_PATH = "message.txt"
 BRANCH = "main"
