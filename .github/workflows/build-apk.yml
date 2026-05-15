@@ -24,11 +24,16 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt update
-        sudo apt install -y python3.10 python3.10-distutils git zip openjdk-17-jdk unzip wget autoconf automake libtool
+        sudo apt install -y python3.10 python3.10-distutils git zip unzip wget autoconf automake libtool
 
-        # Installer pip, setuptools et wheel pour Python 3.10
         python3.10 -m ensurepip --upgrade
         python3.10 -m pip install --upgrade pip setuptools wheel
+
+    - name: Install Java 17
+      run: |
+        sudo apt install -y openjdk-17-jdk
+        export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+        echo "JAVA_HOME=$JAVA_HOME" >> $GITHUB_ENV
 
     - name: Install Android NDK 25b
       run: |
