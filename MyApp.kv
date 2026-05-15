@@ -1,0 +1,105 @@
+<HomeScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 20
+
+        Label:
+            text: "Application Démo"
+            font_size: 40
+
+        Button:
+            text: "Aller au formulaire"
+            font_size: 28
+            on_press: app.root.current = "form"
+
+        Button:
+            text: "Voir la liste"
+            font_size: 28
+            on_press: app.root.current = "list"
+
+
+<FormScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 20
+
+        TextInput:
+            id: input_name
+            hint_text: "Votre nom"
+            font_size: 24
+
+        BoxLayout:
+            size_hint_y: None
+            height: 60
+            Label:
+                text: "Activer option"
+            Switch:
+                id: switch_opt
+
+        BoxLayout:
+            size_hint_y: None
+            height: 60
+            Label:
+                text: "Niveau"
+            Slider:
+                id: slider_lvl
+                min: 0
+                max: 10
+                value: 5
+
+        Button:
+            text: "Valider"
+            font_size: 28
+            on_press:
+                print("Nom:", input_name.text)
+                print("Switch:", switch_opt.active)
+                print("Slider:", slider_lvl.value)
+
+        Button:
+            text: "Retour"
+            font_size: 28
+            on_press: app.root.current = "home"
+
+
+<ListScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 20
+
+        Label:
+            text: "Liste d’éléments"
+            font_size: 32
+
+        ScrollView:
+            GridLayout:
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: 10
+
+                Button:
+                    text: "Élément 1"
+                    size_hint_y: None
+                    height: 60
+                Button:
+                    text: "Élément 2"
+                    size_hint_y: None
+                    height: 60
+                Button:
+                    text: "Élément 3"
+                    size_hint_y: None
+                    height: 60
+                Button:
+                    text: "Élément 4"
+                    size_hint_y: None
+                    height: 60
+
+        Button:
+            text: "Retour"
+            font_size: 28
+            size_hint_y: None
+            height: 60
+            on_press: app.root.current = "home"
